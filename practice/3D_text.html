@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #89be6e;
+    }
+    .container{
+        width: 500px;
+        margin: 100px auto;
+    }
+
+    .container img{
+        width: 100%;
+        box-shadow: 2px 2px 8px #999;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <img src="./img/drink.jpg" alt="">
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="./js/jQuery-face-cursor.js"></script>
+
+    <script>
+
+        $(function(){
+            $(".container").faceCursor();
+        })//END
+    </script>
+</body>
+</html>

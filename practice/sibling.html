@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        transition: all .6s;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="main">
+            <a href="">Home</a>
+        </div>
+        <p>我是Maggie</p>
+        <p>我是Maggie</p>
+        <p>我是Maggie</p>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script>
+    $(function(){
+        $('.main').click(function(){
+            $(this).parent().css("background-color","lightblue");
+            $(this).siblings().css({"color":"red", "font-weight":"bold"});
+            $(this).find('a').css({"color":"red"});
+
+        })
+    })//END
+
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/accordion.css">
+    <title>accordion手風琴特效</title>
+</head>
+<body>
+    <div class="accordion">
+        <div class="accordion-item">
+            <h3 class="accordion-header">Q: 什麼是密室逃脫遊戲？</h3>
+            <div class="accordion-content">
+                <p>A: 是一種實境遊戲，與大家一起同興協力，以尋找逃脫的方法</p>
+            </div>
+        </div>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header">Q: 通常密室逃脫遊戲的時間是多久？</h3>
+                <div class="accordion-content">
+                    <p>A: 一般範圍在60~90分鐘之間。也有一些更長或更短的遊戲時間，具體取決於遊戲主辦方。</p>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h3 class="accordion-header">Q: 如果我們無法解開謎題怎麼辦？</h3>
+                <div class="accordion-content">
+                    <p>A: 如在遊戲中無法解開某個謎題，可以請求提示。小天使會提供一定數量的提示，以幫助你們繼續遊戲。</p>
+                </div>
+            </div>
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.accordion-item').click(function(){
+            
+                let content=$(this).find('.accordion-content');
+        
+
+                if($(this).hasClass("active")){
+                    $(this).removeClass("active");
+                    content.slideUp(300);
+                }else{
+                    $('.accordion-item').removeClass('active');
+                    $('.accordion-content').slideUp(300);
+
+                    $(this).addClass("active");
+                    content.slideDown(500);
+                }
+
+            })
+
+            $('.accordion-item').first().click();
+
+        })//EMD
+
+    </script>
+</body>
+</html>

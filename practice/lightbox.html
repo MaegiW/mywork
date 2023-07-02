@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        margin: auto;
+        width: 1200px;
+    }
+
+    .gallery{  
+        display: flex;
+        justify-content: center;
+    }
+
+    .gallery img{
+        width: 100%;        
+    } 
+
+    .gallery a{
+        margin-right: 15px;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .lightbox-overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+        display:  block;
+        transition: all 1s;
+    }
+
+    .lightbox-content {
+        max-width: 25%;
+        max-height: 50%;
+        margin: auto;
+        position: relative;     
+
+    }
+
+    .lightbox-img{
+        max-width: 100%;
+        max-height: 80%;
+        margin-top: 20px;
+    }
+
+    .lightbox-content p{
+        position: absolute;
+        bottom: -90px;
+        left:75px;
+        width: 100%;
+        padding: 20px 10px;
+        font-size: 18px;
+        color: aliceblue;
+    }
+    .lightbox-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: aliceblue;
+        font-size: 30px;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="gallery">
+            <a href="./img/1.png">
+                <img src="./img/1.png" alt="">
+            </a>
+
+            <a href="./img/小白.jpg">
+                <img src="./img/小白.jpg" alt="">
+            </a>
+
+            <a href="./img/小葵.png">
+                <img src="./img/小葵.png" alt="">
+            </a>
+
+            <a href="./img/廣志-1.jpg">
+                <img src="./img/廣志-1.jpg" alt="">
+            </a>
+
+            <a href="./img/美冴.jpg">
+                <img src="./img/美冴.jpg" alt="">
+            </a>
+
+        </div>
+    </div>
+    
+    <div class="lightbox-overlay">
+        <div class="lightbox-content">
+            <img src="./img/1.png" alt="" class="lightbox-img">
+            <p>蠟筆小新</p>
+            <span class="lightbox-close">&times;</span>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.gallery a').hover(
+                function(){
+                    //滑入後放大
+                    $(this).find('img').animate({"width":"220px", "height":"220px", "margin-top":"-5px","margin-left":"-5px"}, 500);
+                },
+                function(){
+                    $(this).find('img').animate({"width":"200px", "height":"200px", "margin-top":"-5px","margin-left":"-5px"}, 500);
+                }
+            )
+
+            $('.gallery a').click(function(e){
+                e.preventDefault();
+                console.log(this);
+                var img_url = $(this).attr("href");
+                console.log(img_url);
+                
+                $(".lightbox-img").attr("src", img_url)
+                $(".lightbox-overlay").css({"display":"block"});
+            })
+            $('.lightbox-close').click(function(){
+                $(".lightbox-overlay").css({"display":"none"});
+            })
+             
+        })//END
+
+    </script>
+</body>
+</html>

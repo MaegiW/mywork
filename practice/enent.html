@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        cursor: pointer;
+    }
+
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        color: black;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 2s;
+        position: relative;
+
+    }
+    .input-area{
+        margin-top: 100px;
+        padding: 20px;
+        border: 1px solid red;
+    }
+
+    input{
+        height: 22px;
+        border-radius: 5px;
+    }
+
+    .error{
+        border: 2px solid red;
+    }
+
+    .right{
+        border: 2px solid green;
+
+    }
+    .wrong{
+        font-weight: bold;
+        color: red;
+        display: none;
+    }
+    
+</style>
+<body>
+    <h1>Maggie很可愛</h1>
+    <div class="box">
+        <h2>這是MG家</h2>
+        <p>welcome to MG house</p>
+    </div>
+    
+    <div class="input-area">
+        <form action="">
+            <label for="Name">姓名</label>
+            <input id="Name" type="text" placeholder="請輸入姓名">
+            <p class="wrong">請輸入姓名</p>
+            <button id="submit" type="button">送出</button>
+        </form>
+        您的名字是: <span class="show">xxx</span>
+    </div> 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('h1').click(function(){
+                $(this).css("color","blue");
+            })
+            var is_open = 0;
+            var viewport = $(window).width();
+            if(viewport < 1024){
+                $('.box').click(function(){
+                    if(is_open == 0){
+                        $(this).css({"width":"150px", "height":"150px", "background-color":"green"});
+                        is_open = 1;
+                    }else{
+                        $(this).css({"width":"100px", "height":"100px", "background-color":"aquamarine"});  
+                        is_open = 0;
+
+                    }
+                })
+
+            }else{
+
+                $('.box').hover(
+                function(){
+                    //hover in
+                    $(this).css({"width":"150px", "height":"150px", "background-color":"green"});
+                },
+                function(){
+                    //hover out
+                    $(this).css({"width":"100px", "height":"100px", "background-color":"aquamarine"});  
+                }
+                )   
+            }
+            
+
+            // $('#Name').keydown(function(){
+            //     console.log('鍵盤被點下');
+            // })
+
+            $('#Name').keyup(function(){
+                $('.show').html($(this).val());
+                $('.worng').hide();
+            })
+
+            $('#Name').focus(function(){
+                $(this).attr("placeholder","");
+                // $(this).attr("v","");
+
+            })
+
+            $('#Name').blur(function(){
+                $(this).attr("placeholder","請輸入姓名");
+                // $(this).attr("v","");
+
+            })
+
+            // $('#Name').change(function(){
+            //     $('.show').html($(this).val());
+            //     // $(this).attr("v","");
+            // })
+
+            //驗證
+            $('#submit').click(function(){
+                var name = $('#Name').val();
+                if(name ==""){
+                    $('#Name').addClass('error');
+                    $('.wrong').show();
+                }else{
+                    $('#Name').addClass('right');
+                    $('#Name').removeClass('error');
+                    $('.worng').hide();
+                }
+            })
+
+
+
+        })//END
+
+
+        </script>
+</body>
+</html>

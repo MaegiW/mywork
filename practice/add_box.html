@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            margin: 0 auto;
+            display: flex;
+            max-width: 1200px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(61, 176, 103);
+            margin-left: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+       /* CSS */
+        .button-55 {
+        align-self: center;
+        background-color: #fff;
+        background-image: none;
+        background-position: 0 90%;
+        background-repeat: repeat no-repeat;
+        background-size: 4px 3px;
+        border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+        border-style: solid;
+        border-width: 2px;
+        box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+        box-sizing: border-box;
+        color: #41403e;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Neucha, sans-serif;
+        font-size: 1rem;
+        line-height: 23px;
+        outline: none;
+        padding: .75rem;
+        text-decoration: none;
+        transition: all 235ms ease-in-out;
+        border-bottom-left-radius: 15px 255px;
+        border-bottom-right-radius: 225px 15px;
+        border-top-left-radius: 255px 15px;
+        border-top-right-radius: 15px 225px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        }
+
+        .button-55:hover {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+        transform: translate3d(0, 2px, 0);
+        }
+
+        .button-55:focus {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <button id="add" class="button-55">新增</button>
+    <button id="remove" class="button-55">移除</button>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var color = ["red","blue","green","yellow","white","black","#ffa629"];
+            var color_i = 0;
+            $('#add').click(function(){
+                $('.container').append('<div class="box"></div>');
+                var box_el = $('.box').length;
+                $('.box').eq(box_el-1).css({"background-color": color[color_i]});
+                color_i++;
+                if(color_i > 6){ //判斷顏色索引超過範圍就回到第一個
+                    color_i = 0 ;
+                }
+
+            
+            })
+            $('#remove').click(function(){
+                var box_el = $('.box').length;
+                console.log(box_el);
+                $('.box').eq(box_el-1).remove();
+            })
+
+            
+
+        })//END
+
+    </script>
+</body>
+</html>

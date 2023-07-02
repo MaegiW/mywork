@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/opencard.css">
+    <title>OpenCard</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">
+            <div class="front">
+                <div class="sectionwrap">
+                    <h1>Surprise!</h1>
+                    <hr>
+                    <img src="./img/love.jpg" alt="">
+                    <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, quaerat.</p> -->
+                    <button class="openbutton">click me!</button>
+                </div>
+            </div>
+            <div class="back">
+                <div class="sectionwrap">
+                    <h1>吹蛋糕</h1>
+                    <hr>
+                    <img src="./img/leftjpg.jpg" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, quaerat.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="sectionwrap">
+                <h1>Maggie Mid</h1>
+                <hr>
+                <img src="./img/letter.jpg" alt="">
+                <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, quaerat.</p> -->
+            </div>
+        </div>
+        <div class="right">
+            <div class="front">
+                <div class="sectionwrap">
+                    <h1>來喝酒</h1>
+                    <hr>
+                    <img src="./img/right1.jpg" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, quaerat.</p>
+                    <a href="#" class="closebutton">&times;</a>
+                </div>
+            </div>  
+            <div class="back">
+                <div class="sectionwrap">
+                    <h1>rightback</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            // $('.openbutton').click(function(){
+            //     $('.left').addClass('open');
+            //     $('.right').addClass('open'),250;
+
+            // })
+            // $('.closebutton').click(function(){
+            //     $('.left').removeClass('open');
+            //     $('.right').removeClass('open');
+            // })
+
+            $('.openbutton').click(function(){
+                $('.left').addClass('open');
+                setTimeout(function(){
+                    $('.right').addClass('open');},250);
+                setTimeout(function(){
+                    $('.back').addClass('open');},350);
+
+                $('.closebutton').delay(1000).fadeIn();
+            })
+
+            $('.closebutton').click(function(){
+                setTimeout(function(){
+                    $('.left').removeClass('open');},250);
+                    $('.right').removeClass('open');
+                    setTimeout(function(){
+                        $('.back').removeClass('open');},600);
+                    
+                $('.closebutton').fadeOut();
+    
+                
+            })
+
+
+        })//END
+
+    </script>
+</body>
+</html>

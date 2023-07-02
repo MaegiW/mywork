@@ -1,0 +1,19 @@
+*{
+    /* outline: 1px solid red; */
+}
+
+#banner{
+    width: 80%;
+    margin: 50px auto;
+    height: 700px;
+    overflow: hidden;
+
+}
+
+.item img{
+    width: 100%;
+}
+
+*{
+    
+}
